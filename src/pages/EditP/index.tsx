@@ -21,6 +21,7 @@ const initialItem = {
     id: "",
     title: "",
     category: "",
+    categoryName: "",
     price: 0,
     dateCreated: new Date(),
     priceNegotiable: false,
