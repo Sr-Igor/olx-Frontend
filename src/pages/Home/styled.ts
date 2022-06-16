@@ -203,6 +203,14 @@ export const PageArea = styled.div`
         font-size: 15px;
         color: #4a4a4a;
     }
+    
+    .loren {
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+
+
     }
 }
 

@@ -246,7 +246,7 @@ export const ProductPage = () => {
                         {pdInfo.priceNegotiable && 
                             "Preço Negociável"
                         }
-                        {!pdInfo.priceNegotiable && pdInfo.price && 
+                        {!pdInfo.priceNegotiable && pdInfo.price !== 0 &&
                             <div className='price'><span>{FormatedPrice}</span></div>
                         }
                     </div>

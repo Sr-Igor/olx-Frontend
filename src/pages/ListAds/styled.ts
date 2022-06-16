@@ -80,12 +80,23 @@ export const PageArea = styled.div<{seeCat: string}>`
                 width: 150px;
             }
     
-            .listWarning {
+            .not-found-text{
                 font-weight: bold;
                 color: #555;
                 padding: 30px;
                 text-align: center;
+                width: 100%;
+                background-color: red;
             }
+        }
+
+            
+        .listWarning{
+            font-weight: bold;
+            color: #555;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
         }
         
         .list {

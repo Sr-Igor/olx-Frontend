@@ -183,7 +183,7 @@ export const ListAds = () => {
                 {!loading && adList.length ===0 &&
                 <div className='not-found-box' style={{opacity}}>
                     <img className='img-not-found' src="/images/not-found.png" alt="" />
-                    <div className="listWarning">Nenhum resultado correspondente</div>
+                    <div className="not-found-text">Nenhum resultado correspondente</div>
                 </div>
                 }
 

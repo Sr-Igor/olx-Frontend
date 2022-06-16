@@ -103,7 +103,9 @@ export const Home = () => {
 
                 <hr />
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt iusto nulla libero fugit obcaecati nobis facere, corporis neque error magnam cupiditate omnis quos assumenda temporibus ipsum repellat. Ut, sapiente?
+                <div className='loren'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt iusto nulla libero fugit obcaecati nobis facere, corporis neque error magnam cupiditate omnis quos assumenda temporibus ipsum repellat. Ut, sapiente?
+                </div>
                
                 </C.PageArea>
             </PageContainer>

@@ -299,16 +299,24 @@ export const PageArea = styled.div<{color: string}>`
 
 @media (max-width:600px){
 
+    h2 {
+        text-align: center;
+    }
+
     .options{
 
         div {
             display: flex;
             align-items: center;
-            flex: 1;  
+            justify-content: center;
+            width: 33%; 
+            text-align: center;
+            margin: auto;
+            height: 50px;
         }
 
         .active {
-            width: auto;
+            width: 33%;
         }
     }
 

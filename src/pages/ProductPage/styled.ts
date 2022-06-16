@@ -352,7 +352,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
 
             .productImage{
                 width: 100vw;
-                height: 300px;
+                height: 280px;
     
                 .arrow {
                     margin: 3px;
@@ -371,7 +371,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                     margin-left: calc(${props => props.currentImage/500} * 100vw);
                     height: 100%;
                     padding:0;
-                    background-color: #eee;
+                    background-color: rgba(0,0,0,0.9);
                 }
     
                 .slide--Item{
@@ -381,8 +381,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
 
                     img {
                         max-width: 100%;
-                        height: auto;
-                        // margin: auto;
+                        max-height: 280px;
                         margin: 0;
                     }
                 }
