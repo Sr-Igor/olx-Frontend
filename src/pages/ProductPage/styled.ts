@@ -175,7 +175,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                 margin-left: 10px;
 
                 .mini--item {
-                    width: 54px;
+                    width: 50px;
                     height: 50px;
                     display:flex;
                     margin-bottom: 10px;
@@ -251,6 +251,10 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                     
                 }
             }
+
+            .priceNeg {
+                font-size: 25px;
+            }
         }
 
         .price span {
@@ -304,7 +308,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                 text-decoration: none;
             }
                 
-            div {
+            button {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -312,9 +316,12 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                 padding: 10px 15px;
                 color: #FFF;
                 cursor: pointer;
+                border: none;
+                width: 100%;
+                font-size: 15px;
 
                 &:hover {
-                    opacity: 0.8;
+                    opacity: 0.5;
                 }
 
                 img {
@@ -435,6 +442,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
 
         .box-price{
             border-radius: 0;
+            text-align: center;
         }
 
         .price span {
@@ -478,7 +486,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
                 text-decoration: none;
             }
                 
-            div {
+            button{
                 height: 30px;
                 border-radius: 0;
                 margin-top: 0px;

@@ -244,6 +244,7 @@ export const EditP = () => {
     // Set available or unavailable
     const setCondition = async (order: boolean) => {
         setMessage("") // Clean error
+        setDisabled(true)
         setColorMessage("#c9242e") // Color error
         setStatus(order) // Status Ads
 
@@ -258,6 +259,7 @@ export const EditP = () => {
         }else {
             setMessage(json.error)
         }
+        setDisabled(false)
     }
 
     // Delete Ads
@@ -337,13 +339,13 @@ export const EditP = () => {
                             <div className="input--area">
                                 {status &&
                                     <div className="unavailable" onClick={()=> setCondition(false)}>
-                                        <img src="/icons/error.png" alt="inds" />
+                                        <img src="/icons/error.png" alt="" />
                                         Marcar como Indisponível
                                     </div>
                                 }
                                 {!status &&
                                     <div className="available" onClick={()=> setCondition(true)}>
-                                        <img src="/icons/check.png" alt="dis" />
+                                        <img src="/icons/check.png" alt="" />
                                         Marcar como Disponível
                                     </div>
                                 }
@@ -394,6 +396,7 @@ export const EditP = () => {
                                         allowNegative={false} 
                                         onValueChange={(e)=> setPrice(e.value.replace(".", ","))}
                                         placeholder="R$"
+                                        disabled={priceNeg || disabled}
                                     />
                                 </div>
 
@@ -418,7 +421,7 @@ export const EditP = () => {
                                 </div>
 
                                 <div className="input--area">
-                                    <label htmlFor="">Stado</label>
+                                    <label htmlFor="">Estado</label>
                                     <select onChange={e=>setStatePd(e.target.value)} disabled={disabled} value={statePd}>
                                         {stateList.map((i: StateList, key)=>
                                             <option key={key} value={i.name}>{i.name}</option>

@@ -160,7 +160,10 @@ export const AddAd = () => {
                 <h2>Postar um anúncio</h2>
                 {error && 
                 <>
-                    <div className='box-error'>{error}</div>
+                    <div className='box-error'>
+                        <img src="/icons/alert.png" alt="" />
+                        <div>{error}</div>
+                    </div>
                     <div className="message-mobile">
                         <div className="box-message">
                             <div className="title-message">Aviso</div>
@@ -274,6 +277,7 @@ export const AddAd = () => {
                                     allowNegative={false} 
                                     onValueChange={(e)=> setPrice(e.value.replace(".", ","))}
                                     placeholder="R$"
+                                    disabled={priceNegotiable || disabled}
                                 />
                             </div>
                         </label>

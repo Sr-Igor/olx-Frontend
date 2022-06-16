@@ -205,6 +205,7 @@ export const PageArea = styled.div<{color: string}>`
             margin-top: 15px;
             padding: 5px 10px;
             border-radius: 5px;
+            text-align: center;
         }
 
         .title-box {

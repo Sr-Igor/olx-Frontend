@@ -203,8 +203,9 @@ export const PageArea = styled.div<{color: string}>`
 
                 textarea {
                     resize: none;
-                    height: 80px;
+                    height: 120px;
                     width: 250px;
+                    font-family: arial;
                 }
 
                 input[type="checkbox"] {

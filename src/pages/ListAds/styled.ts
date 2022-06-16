@@ -71,7 +71,7 @@ export const PageArea = styled.div<{seeCat: string}>`
         }
 
         .not-found-box{
-            height: 100%;
+            height: 90%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -86,7 +86,6 @@ export const PageArea = styled.div<{seeCat: string}>`
                 padding: 30px;
                 text-align: center;
                 width: 100%;
-                background-color: red;
             }
         }
 

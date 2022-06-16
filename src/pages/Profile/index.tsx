@@ -59,6 +59,7 @@ export const Profile = () => {
     const [disable, setDisable] = useState(false)
     const [message, setMessage] = useState("")
     const [messagePassword, setMessagePassword] = useState("")
+    const [messagePhoto, setMessagePhoto] = useState("")
     const [messageColor, setMessageColor] = useState("#000")
     const [displayModal, setDisplayModal] = useState(["none", "0"])
 
@@ -209,7 +210,7 @@ export const Profile = () => {
 
     // Add image
     const addImage = async () => {
-        setMessagePassword("")
+        setMessagePhoto("")
         setMessageColor("")
         setDisable(true)
         
@@ -227,10 +228,10 @@ export const Profile = () => {
          const json = await Api.editUser(formData)
          if(!json.error && json.image){
             dispatch({type: "SET_IMAGE", payload: json.image})
-            setMessagePassword("Imagem atualizada")
+            setMessagePhoto("Imagem atualizada")
             setMessageColor("#408140")
          }else{
-            setMessagePassword(json.error)
+            setMessagePhoto(json.error)
             setMessageColor("#c9242e") 
          }
          setDisable(false)
@@ -239,7 +240,7 @@ export const Profile = () => {
     // Delete image
     const deleteImage = async () => {
         dispatch({type: "SET_IMAGE", payload: "/images/default-profile.jpg"}) // Reset reducer
-        setMessagePassword("")
+        setMessagePhoto("")
         setMessageColor("")
         setDisable(true)
 
@@ -254,11 +255,11 @@ export const Profile = () => {
              const json = await Api.editUser(formData)
     
              if(!json.error){
-                 setMessagePassword("Imagem Removida")
+                 setMessagePhoto("Imagem Removida")
                  setMessageColor("#faad14")
                  setImage("")
              }else{
-                 setMessagePassword(json.error)
+                 setMessagePhoto(json.error)
                  setMessageColor("#c9242e") 
              }
              setDisable(false)
@@ -330,8 +331,8 @@ export const Profile = () => {
                 <C.PageArea color={messageColor}>
                     <div className='box--info'>
                         <span className='title-box'>Alterar Foto de Perfil</span>
-                        {messagePassword && 
-                            <div className='message'>{messagePassword}</div>
+                        {messagePhoto && 
+                            <div className='message'>{messagePhoto}</div>
                         }
                         <form action="" method='PUT'>
                             <div className='currentImage'>

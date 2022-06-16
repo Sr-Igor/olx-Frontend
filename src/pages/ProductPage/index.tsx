@@ -50,6 +50,7 @@ export const ProductPage = () => {
     // Loading Controller
     const [loading, setLoading] = useState(true)
     const [displayModal, setDisplayModal] = useState("none")
+    const [disable, setDisabled] = useState(false)
 
     //Product Content
     const [pdInfo, setPdInfo] = useState<SingleItem>(initialItem)
@@ -134,17 +135,21 @@ export const ProductPage = () => {
 
     // Resquest for Status Product
     const statusProduct = async (status: boolean) => {
+        setDisabled(true)
         const formData = new FormData()
         formData.append("status", status.toString())
         const json = await Api.editAds(formData, id as string)
         if(!json.error) {
             setChangeProduct(!changeProduct)
         }
+        setDisabled(false)
     }
 
     // Request for Delete Product
     const deleteProduct = async () => {
+        setDisabled(true)
         await Api.deleteAds(id as string)
+        setDisabled(false)
         navigate("/")
     }
 
@@ -243,7 +248,7 @@ export const ProductPage = () => {
                     <div className='box box--padding box-price'>
                         {loading && <C.Fake height={20}/>}
                         {pdInfo.priceNegotiable && 
-                            "Preço Negociável"
+                            <span className='priceNeg'>Preço Negociável</span>
                         }
                         {!pdInfo.priceNegotiable && pdInfo.price !== 0 &&
                             <div className='price'><span>{FormatedPrice}</span></div>
@@ -286,27 +291,39 @@ export const ProductPage = () => {
                     {loggedOn && 
                         <div className='action-buttons'>
                             <Link to={`/user/edit/ads/${pdInfo.id}`}>
-                                <div className='editAdButton'>
+                                <button className='editAdButton'>
                                     <img src="/icons/edit.png" alt="Edit--Icon" />
                                     Editar Anúncio
-                                </div>
+                                </button>
                             </Link>
                                 {pdInfo.status &&
-                                    <div className='statusAdButton unavailable' onClick={()=> statusProduct(false)}>
+                                    <button 
+                                        className='statusAdButton unavailable' 
+                                        onClick={()=> statusProduct(false)}
+                                        disabled={disable}
+                                    >
                                         <img src="/icons/error.png" alt="Unavailable--Icon" />
                                         Marcar como Indisponível
-                                    </div>
+                                    </button>
                                 }
                                 {!pdInfo.status &&
-                                    <div className='statusAdButton available'  onClick={()=> statusProduct(true)}>
+                                    <button 
+                                        className='statusAdButton available'  
+                                        onClick={()=> statusProduct(true)}
+                                        disabled={disable}
+                                    >
                                         <img src="/icons/check.png" alt="Available--Icon" />
                                         Marcar como Disponível
-                                    </div>
+                                    </button>
                                 }
-                                <div className='deleteAdButton' onClick={()=> setDisplayModal("flex")}>
+                                <button 
+                                    className='deleteAdButton' 
+                                    onClick={()=> setDisplayModal("flex")}
+                                    disabled={disable}
+                                >
                                     <img src="/icons/trash.png" alt="Delete--Icons" />
                                     Excluir Anúncio
-                                </div>
+                                </button>
                         </div>
                     }
                 </div>

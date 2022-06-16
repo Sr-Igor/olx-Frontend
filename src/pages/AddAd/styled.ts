@@ -3,11 +3,19 @@ import styled from "styled-components";
 export const PageArea = styled.div`
 
     .box-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 10px 0;
         background-color: #c9242e;
         border-radius: 5px;
         color: #FFF;
         padding: 10px;
+
+        img {
+            width: 30px;
+            margin-right: 10px;
+        }
     }
 
     .message-mobile {
@@ -43,15 +51,17 @@ export const PageArea = styled.div`
                    border-radius: 3px;
                    outline: 0; 
                    transition: all ease 0.4s;
+                   background-color: #eee;
     
                    &:focus {
-                    border: 1px solid #333;
+                    border: 1px solid #4a4a4a;
                    }
                 }
     
                 textarea {
                     height: 150px;
                     resize: none;
+                    font-family: arial;
                 }
     
                 .check-input{
