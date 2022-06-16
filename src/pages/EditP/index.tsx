@@ -264,9 +264,12 @@ export const EditP = () => {
 
     // Delete Ads
     const deleteAds = async () => {
+        setDisabled(true)
         setMessage("") // Clean error
         await Api.deleteAds(id as string)
+        setDisabled(false)
         navigate("/")
+
     }
 
     return(
@@ -283,7 +286,7 @@ export const EditP = () => {
                       <span>Tem certeza que deseja excluir? </span>
                       </div>
                   <div className="box--buttons">
-                      <button className="confirm" onClick={()=>deleteAds()}>Excluir</button>
+                      <button disabled={disabled} className="confirm" onClick={()=>deleteAds()}>Excluir</button>
                       <button className="cancel" onClick={e => setDisplayModal("none")}>Cancelar</button>
                   </div>
               </div>
