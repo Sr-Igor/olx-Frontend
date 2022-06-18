@@ -165,10 +165,13 @@ export const PageArea = styled.div`
 
     h2 {
         font-size: 20px;
+        width: 100%;
+        text-align: center;
     }
 
     .list {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
     }
     

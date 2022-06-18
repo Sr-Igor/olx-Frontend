@@ -43,6 +43,7 @@ export const ListAds = () => {
     const [adsTotal, setAdsTotal] = useState(0)
     const [pageCount, setPageCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
+    const [pagination, setPagination] = useState<number[]>([])
 
     // Request states (webService)
     const [stateList, setStateList] = useState([])
@@ -70,6 +71,8 @@ export const ListAds = () => {
         setAdsTotal(json.total) // Get total pages 
         setLoading(false)
         setOpacity(1)
+
+        console.log(adsTotal)
     }
 
     // Monitoring total pages, variable with search
@@ -123,10 +126,13 @@ export const ListAds = () => {
     },[])
 
     // Calc total pages 
-    let pagination = []
-    for(let i=1; i <=pageCount; i++){
-        pagination.push(i)
-    }
+    useEffect(()=> {
+        let pags = []
+        for(let i=1; i <=pageCount; i++){
+            pags.push(i)
+        }
+        setPagination(pags)
+    }, [pageCount])
 
     return(
     <PageContainer>
