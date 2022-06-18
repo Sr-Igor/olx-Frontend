@@ -219,6 +219,14 @@ export const PageArea = styled.div<{opacity: number}>`
                 font-size: 10px;
             }
         }
+
+        .box-error {
+            font-size: 12px;
+
+            img {
+                width: 16px;
+            }
+        }
     }
 
     .info--area {

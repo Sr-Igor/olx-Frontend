@@ -468,7 +468,7 @@ export const PageArea = styled.div<{width: number, currentImage: number}>`
     
                 img{
                     border-radius: 25px;
-                    margin-right: 0px;
+                    margin-right: 8px;
                 }
             }
         }
