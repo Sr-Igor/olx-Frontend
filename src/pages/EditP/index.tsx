@@ -149,6 +149,12 @@ export const EditP = () => {
             return
         }
 
+        if(title.length > 20){  // Verify empty title
+            setMessage("Titúlo deve conter no máximo 20 caracteres")
+            setDisabled(false)
+            return
+        }
+
         if(!cat){ // Verify empty category
             setMessage("Selecione uma categoria")
             setDisabled(false)
@@ -157,6 +163,12 @@ export const EditP = () => {
         
         if(!price && !priceNeg){
             setMessage("Informe o preço ou aceite negociações")
+            setDisabled(false)
+            return
+        }
+
+        if(price.length > 13){
+            setMessage("Produtos deste valor não sao suportados pela plataforma")
             setDisabled(false)
             return
         }
@@ -371,6 +383,7 @@ export const EditP = () => {
                                         value={title} 
                                         onChange={e=>setTitle(e.target.value)}
                                         disabled={disabled}
+                                        maxLength={20}
                                     />
                                 </div>
 
@@ -400,6 +413,7 @@ export const EditP = () => {
                                         onValueChange={(e)=> setPrice(e.value.replace(".", ","))}
                                         placeholder="R$"
                                         disabled={priceNeg || disabled}
+                                        maxLength={13}
                                     />
                                 </div>
 

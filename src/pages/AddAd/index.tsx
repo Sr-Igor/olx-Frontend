@@ -75,6 +75,12 @@ export const AddAd = () => {
            setDisabled(false)
            return
         }
+        
+        if(title.length > 20){  // Verify empty title
+            setError("Titúlo deve conter no máximo 20 caracteres")
+            setDisabled(false)
+            return
+        }
 
         if(!category){ // Verify empty category
             setError("Selecione uma Categoria")
@@ -90,6 +96,12 @@ export const AddAd = () => {
         
         if(!price && !priceNegotiable){
             setError("Informe o preço ou aceite negociações")
+            setDisabled(false)
+            return
+        }
+
+        if(price.length > 13){
+            setError("Produtos deste valor não sao suportados pela plataforma")
             setDisabled(false)
             return
         }
@@ -228,6 +240,7 @@ export const AddAd = () => {
                                 disabled={disabled}
                                 value={title}
                                 onChange={e=>setTitle(e.target.value)}
+                                maxLength={20}
                                 />
                             </div>
                         </label>
@@ -278,6 +291,7 @@ export const AddAd = () => {
                                     onValueChange={(e)=> setPrice(e.value.replace(".", ","))}
                                     placeholder="R$"
                                     disabled={priceNegotiable || disabled}
+                                    maxLength={13}
                                 />
                             </div>
                         </label>
